@@ -18,13 +18,4 @@ import footer_1 from './components/footer.vue';
 <product_list></product_list>
 <footer_1></footer_1>
 
-
-
-
-
-
-
-
-
-
 </template>
