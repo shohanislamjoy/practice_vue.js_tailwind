@@ -1,6 +1,14 @@
 <script setup>
 import logo from '@/assets/img/logo.jpg';
-import { RouterLink } from 'vue-router';
+import { RouterLink,useRoute } from 'vue-router';
+
+const is_active = (route_path) => {
+
+  const route = useRoute();
+  return route.path === route_path;
+
+
+};
 
 </script>
 
@@ -14,10 +22,10 @@ import { RouterLink } from 'vue-router';
         </RouterLink>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><RouterLink class="hover:text-gray-200" to="/">Home</RouterLink></li>
-          <li><RouterLink class="hover:text-gray-200" to="#">Catagory</RouterLink></li>
-          <li><RouterLink class="hover:text-gray-200" to="product">Products</RouterLink></li>
-          <li><RouterLink class="hover:text-gray-200" to="#">Contact Us</RouterLink></li>
+          <li><RouterLink :class="[is_active('/') ? 'bg-[#4e5c5a]':'hover:text-gray-200', 'p-2' ,'rounded-lg']" to="/">Home</RouterLink></li>
+          <li><RouterLink :class="[is_active('/catagory') ? 'bg-[#4e5c5a]':'hover:text-gray-200', 'p-2' ,'rounded-lg']" to="#">Catagory</RouterLink></li>
+          <li><RouterLink :class="[is_active('/product') ? 'bg-[#4e5c5a]':'hover:text-gray-200', 'p-2' ,'rounded-lg']" to="/product">Products</RouterLink></li>
+          <li><RouterLink :class="[is_active('/contact_us') ? 'bg-[#4e5c5a]':'hover:text-gray-200', 'p-2' ,'rounded-lg']" to="/contact_us">Contact Us</RouterLink></li>
         </ul>
         <!-- Header Icons -->
         <div class="hidden xl:flex items-center space-x-5 items-center">
