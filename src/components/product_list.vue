@@ -2,6 +2,7 @@
 <script setup>
 import { ref } from 'vue';
 import products from '@/assets/product.json';
+import { RouterLink, RouterView } from 'vue-router';
 
 const product_data = ref(products);
 
@@ -31,6 +32,10 @@ console.log(product_data.value);
             <button class="mt-4 w-full py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
               Add to Cart
             </button>
+            <router-link :to="'/products/'+product.id" class="text-blue-500 hover:underline">
+                View Details
+              </router-link>
+
           </div>
         </li>
       </ul>
