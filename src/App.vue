@@ -11,7 +11,7 @@ import { RouterView } from 'vue-router';
 <template>
 <!-- <Test_1></Test_1> -->
  <!-- component -->
-<!-- follow me on twitter @asad_codes -->
+
 <navbar></navbar>
 <RouterView/>
 <footer_1></footer_1>

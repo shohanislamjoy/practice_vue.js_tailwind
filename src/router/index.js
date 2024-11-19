@@ -3,6 +3,7 @@ import Home from "../views/home.vue";
 import ProductList from "@/views/product_page.vue";
 import ContactUs from "../views/contact_page.vue";
 import ViewProduct from "../views/view_products_page.vue";
+import not_found from "../views/not_found_page.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL), 
@@ -28,6 +29,11 @@ const router = createRouter({
             name: "contact_us",
             component: ContactUs,
         },
+        {
+            path: '/:catchAll(.*)',
+            name: "not found",
+            component: not_found,
+        }
     ],
 });
 
