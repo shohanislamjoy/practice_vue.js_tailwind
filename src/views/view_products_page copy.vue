@@ -1,39 +1,22 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-// import products from '@/assets/product.json';
-import axios from 'axios';
-import PacmanLoader from 'vue-spinner/src/PacmanLoader.vue';
+import products from '@/assets/product.json';
 
 // Set up a reactive reference to hold the product data
 const productId = useRoute().params.id; // Get the product ID from the route
 const product = ref(null);
-const loading = ref(false);
-
-onMounted(async () => {
-  try {
-    const response = await axios.get(`http://localhost:8000/products/${productId}`);
-    product.value = response.data;// Assign the response data to the product_data ref
-    loading.value = true;
-    
-  } catch (error) {
-    console.error('Error Fetching Data:', error);
-  } finally {
-    loading.value = false;// Set isloading to false after the data has been fetched
-  }
-});
 
 // Find and set the product based on the ID when the component mounts
-// onMounted(() => {
-//   product.value = products.find(p => p.id === (productId));
-// });
+onMounted(() => {
+  product.value = products.find(p => p.id === (productId));
+});
 
 // Log for debugging
 console.log(product.value);
 </script>
 
 <template>
-
   <div v-if="product" class="p-6 max-w-4xl mx-auto">
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Product Image -->
@@ -60,9 +43,5 @@ console.log(product.value);
       </div>
     </div>
   </div>
- <div v-else class="flex items-center justify-center text-blue-400 my-5" >
-    <PacmanLoader/>  
-  <p class="text-gray-500 mt-20">Product not found.</p>
-
-</div>  
+  <p v-else class="text-center text-gray-500 mt-20">Product not found.</p>
 </template>

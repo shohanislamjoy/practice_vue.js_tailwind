@@ -4,6 +4,7 @@ import ProductList from "@/views/product_page.vue";
 import ContactUs from "../views/contact_page.vue";
 import ViewProduct from "../views/view_products_page.vue";
 import not_found from "../views/not_found_page.vue";
+import add_product from "@/views/add_product.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL), 
@@ -28,6 +29,11 @@ const router = createRouter({
             path: "/contact_us",
             name: "contact_us",
             component: ContactUs,
+        },
+        {
+            path: "/add_product",
+            name: "add_product",
+            component: add_product,
         },
         {
             path: '/:catchAll(.*)',

@@ -16,7 +16,7 @@ const loading = ref(false);
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/products');
+    const response = await axios.get('/api/products/');
     product_data.value = response.data;// Assign the response data to the product_data ref
     loading.value = true;
 
@@ -40,7 +40,7 @@ onMounted(async () => {
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Iterate over product_data -->
       <li
-        v-for="(product, index) in product_data"
+        v-for="(product, index) in product_data.slice(0,6)"
         :key="index"
         class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col justify-between h-[450px]"
       >
