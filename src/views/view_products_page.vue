@@ -12,7 +12,9 @@ const loading = ref(false);
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`http://localhost:8000/products/${productId}`);
+    // const response = await axios.get(`http://localhost:8000/products/${productId}`);
+    const response = await axios.get(`https://practice-vue-js-tailwind.onrender.com/products/${productId}`);
+    
     product.value = response.data;// Assign the response data to the product_data ref
     loading.value = true;
     
