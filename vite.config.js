@@ -7,15 +7,15 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     port: 3000,
-    proxy: {
-      "/api": {
-        // target: "http://localhost:8000",   online render server activated
-        target: "https://practice-vue-js-tailwind.onrender.com",
-        changeOrigin: true,
-        rewrite:(path)=>path.replace(/^\/api/,""),
+    // proxy: {
+    //   "/api": {
+    //     // target: "http://localhost:8000",   online render server activated
+    //     target: "https://practice-vue-js-tailwind.onrender.com",
+    //     changeOrigin: true,
+    //     rewrite:(path)=>path.replace(/^\/api/,""),
 
-      }
-    }
+    //   }
+    // }
   },
   resolve: {  // Fix: Add colon here
     alias: {
