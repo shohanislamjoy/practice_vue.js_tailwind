@@ -9,8 +9,8 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        // target: "http://localhost:8000",
-        target: "online render server activated",
+        // target: "http://localhost:8000",   online render server activated
+        target: "https://practice-vue-js-tailwind.onrender.com",
         changeOrigin: true,
         rewrite:(path)=>path.replace(/^\/api/,""),
 
