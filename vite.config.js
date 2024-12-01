@@ -9,8 +9,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        // target: "http://localhost:8000", api test in netlify
-        target:"https://vuejs-server-test-site.netlify.app/api",
+        target: "http://localhost:8000"
         changeOrigin: true,
         rewrite:(path)=>path.replace(/^\/api/,""),
 
