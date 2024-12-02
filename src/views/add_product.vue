@@ -22,7 +22,8 @@ const productCounter = ref(0); // Local counter for auto-increment
 
 const fetchCurrentCounter = async () => {
   try {
-    const response = await axios.get('/api/products'); // Fetch existing products
+    // const response = await axios.get('/api/products'); // Fetch existing products
+    const response = await axios.get(`https://practice-vue-js-tailwind.onrender.com/products`);
     // Set counter based on the largest ID if available, or default to 1
     const ids = response.data.map(product => parseInt(product.id, 10)).filter(Number.isFinite);
     productCounter.value = ids.length ? Math.max(...ids) + 1 : 1;
