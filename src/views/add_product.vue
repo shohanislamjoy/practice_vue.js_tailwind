@@ -57,7 +57,8 @@ const addProduct = async () => {
     console.log('New Product:', JSON.stringify(newProduct, null, 2));
 
     // Post the product
-    await axios.post('/api/products', { ...newProduct }); // Spread to avoid reactivity issues
+    // await axios.post('/api/products', { ...newProduct }); // Spread to avoid reactivity issues
+    const response = await axios.get(`https://practice-vue-js-tailwind.onrender.com/products`, { ...newProduct });
     alert('Product added successfully!');
 
     // Increment counter and reset form
